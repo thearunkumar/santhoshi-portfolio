@@ -1,0 +1,6 @@
+.single-view {
+    display: flex;
+    height: 99vh;
+    padding-top: 5rem;
+    align-items: center;
+}

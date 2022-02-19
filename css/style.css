@@ -1,7 +1,12 @@
 :root {
     --active-purple: #2e2575;
     --inactive-purple: #9591b9;
-    --menu-font-size: 30px;
+    --menu-font-size: 3rem;
+    --intro-description-size: 7rem;
+    --welcome-message-size: 3rem;
+
+    --white-color: #fff;
+    --intro-description-color: #ff5733;
 }
 
 html {

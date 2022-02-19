@@ -34,7 +34,7 @@ class Header extends HTMLElement {
         const { pathname } = window.location;
 
         if (identifier === 'home') {
-            return pathname === '/' || pathname === '/index.html' ? 'active' : 'in-active';
+            return pathname === '/' || pathname === '/index.html' || pathname === '/home.html' ? 'active' : 'in-active';
         }
 
         if (pathname === `/${identifier}.html`) {
@@ -71,3 +71,38 @@ class Header extends HTMLElement {
 }
 
 customElements.define('portfolio-header', Header);
+
+///
+
+class FillCard extends HTMLElement {
+    constructor() {
+        super();
+    }
+
+    getBaseStyle() {
+        return `
+            <link href="css/components/fill-card.css" type="text/css" rel="stylesheet" />
+        `;
+    }
+
+    getFillCardStyle() {
+        return this.getBaseStyle();
+    }
+
+    getCardElements() {
+        return '123';
+    }
+
+    getFillCard() {
+        return `<section class="single-view">
+            ${this.getCardElements()}
+        </section>`;
+    }
+
+    connectedCallback() {
+        this.innerHTML = this.getFillCardStyle() + this.getFillCard();
+    }
+
+}
+
+customElements.define('fill-card', FillCard);
