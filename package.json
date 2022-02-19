@@ -4,6 +4,7 @@
   "description": "Santhoshi's portfolio",
   "main": "index.js",
   "scripts": {
+    "start": "echo \"Starting npm start \"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
