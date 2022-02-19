@@ -1,0 +1,14 @@
+:root {
+    --active-purple: #2e2575;
+    --inactive-purple: #9591b9;
+    --menu-font-size: 30px;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
