@@ -71,14 +71,6 @@ class AboutCard extends FillCard {
                 padding: 0 15rem;
                 margin: 1rem;
             }
-            .circle {
-                position: absolute;
-                right: -18%;
-                width: 70rem;
-                height: 70rem;
-                border-radius: 50%;
-                background: linear-gradient(180deg, #fd5633, #322574);
-            }
         </style>
         `;
     }
@@ -86,7 +78,6 @@ class AboutCard extends FillCard {
     getCardElements = () => {
         return `<div class="about-card-view">
             <h1>${ABOUT_DESCRIPTION}</h1>
-            <div class="circle"></div>
         </div>`;
     }
 }
@@ -127,6 +118,7 @@ class ExperienceComponent extends HTMLElement {
             .experience-component .institution {
                 display: flex;
                 flex: 3;
+                text-align: left;
             }
         </style>`
     }
@@ -173,6 +165,7 @@ class CareerCard extends FillCard {
         return this.getBaseStyle() + `
         <style>
             .career-card-view {
+                position: relative;
                 display: flex;
                 flex: 1;
                 flex-direction: column;
@@ -198,7 +191,14 @@ class CareerCard extends FillCard {
                 height: 70rem;
                 border-radius: 50%;
                 background: linear-gradient(180deg, #fd5633, #322574);
-                z-index: 99;
+                top: -80%;
+                z-index: 0;
+            }
+            .circle.end {
+                left: -26%;
+                top: unset;
+                bottom: -80%;
+                background: linear-gradient(180deg, #322574, #fd5633);
             }
         </style>
         `;
@@ -220,9 +220,168 @@ class CareerCard extends FillCard {
                     return `<experience-component year="${year}" course="${course}" institution="${institution}"></experience-component>`;
                 })}
             </div>
-            
+            <div class="circle"></div>
+            <div class="circle end"></div>
         </div>`;
     }
 }
 
 customElements.define('career-card', CareerCard);
+
+class SkillCategoryComponent extends HTMLElement {
+    constructor() {
+        super();
+        this.title = this.getAttribute('title');
+        this.skills = this.getAttribute('skills');
+    }
+
+    static get observedAttributes() {
+        return [`title`, `skills`];
+    }
+
+    getStyles() {
+        return `<style>
+            .skills-category-component {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .skills-category-component h1 {
+                font-size: 5rem;
+            }
+            .skills-category-component p {
+                font-size: 3rem;
+                color: var(--active-purple);
+                margin: 0.5rem 0;
+                padding: 0;
+            }
+        </style>`
+    }
+
+    getSkillCategoryComponents() {
+        let str = '';
+        this.skills.split(',').forEach((skill) => {
+            str += `<p>${skill}</p>`
+        })
+        return str;
+    }
+
+    getComponent() {
+        return `<aside class="skills-category-component">
+            <h1>${this.title}</h1>
+            ${this.getSkillCategoryComponents()}
+        </aside>`;
+    }
+
+    connectedCallback() {
+        this.innerHTML = this.getStyles() + this.getComponent();
+    }
+
+}
+
+customElements.define('skills-category-component', SkillCategoryComponent);
+
+class SkillsCard extends FillCard {
+    constructor() {
+        super();
+        this.skillsView = [{
+            title: 'UX Design',
+            skills: [
+                'Generalist Designer',
+                'Wireframing',
+                'Prototyping',
+                'Web Design',
+                'Mobile design',
+                'Logo design'
+            ]
+        }, {
+            title: 'UX Research',
+            skills: [
+                'Problem Statement',
+                'User journey map',
+                'Storyboarding',
+                'Affinity map',
+                'Usability testing',
+                'Persona interviews'
+            ]
+        }, {
+            title: 'Technical',
+            skills: [
+                'HTML',
+                'CSS',
+                'Java - Basics',
+                'Python - Basics',
+                'SDLC',
+                'COBOL DB2',
+                'JCL'
+            ]
+        }, {
+            title: 'Design Tools',
+            skills: [
+                'Figma',
+                'Adobe XD'
+            ]
+        }, {
+            title: 'Technical Tools',
+            skills: [
+                'Eclipse',
+                'Rumba',
+                'Sublime text',
+                'Notepad ++'
+            ]
+        }]
+    }
+
+    getFillCardStyle() {
+        return this.getBaseStyle() + `
+        <style>
+            .skills-card-view {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 90%;
+                margin: 0 auto;
+                margin-top: 20rem;
+                padding-bottom: 30rem;
+            }
+            .skills-card-view h1 {
+                color: var(--active-purple);
+                font-size: var(--intro-description-size);
+                margin: 1rem;
+            }
+            h1.skills-title {
+                margin-bottom: 3rem;
+            }
+            .skills-categories {
+                flex-wrap: wrap;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 2rem;
+            }
+            .skills-categories > * {
+                width: 33%;
+            }
+        </style>
+        `;
+    }
+
+    getSkillCategoryComponents() {
+        let str = '';
+        this.skillsView.forEach((skillView) => {
+            str += `<skills-category-component title="${skillView.title}" skills="${skillView.skills}"></skills-category-component>`;
+        })
+        return str;
+    }
+
+    getCardElements = () => {
+        return `<div class="skills-card-view">
+            <h1 class="skills-title">Skills</h1>
+            <div class="skills-categories">
+                ${this.getSkillCategoryComponents()}
+            </div>
+        </div>`;
+    }
+}
+
+customElements.define('skills-card', SkillsCard);

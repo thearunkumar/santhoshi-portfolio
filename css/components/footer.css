@@ -1,16 +1,16 @@
-header {
+footer {
     width: 100%;
     display: flex;
     flex: 1;
     align-items: center;
-    position: fixed;
     padding: 0 5% 0 5%;
     box-sizing: border-box;
     background: var(--white-color);
-    z-index: 999;
+    color: var(--inactive-purple);
+    font-size: 3rem;
 }
 
-figure {
+p {
     margin: 0;
     padding: 0;
     display: flex;

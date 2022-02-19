@@ -106,3 +106,83 @@ class FillCard extends HTMLElement {
 }
 
 customElements.define('fill-card', FillCard);
+
+class Footer extends HTMLElement {
+    constructor() {
+        super();
+    }
+
+    // TODO: Ideally get it as a prop from outside. Just like react. Ok, for now!
+    getMenuItems() {
+        return [{
+            identifier: 'dribble',
+            displayIcon: '*',
+            href: '/'
+        }, {
+            identifier: 'behance',
+            displayIcon: '&',
+            href: '/projects.html'
+        }, {
+            identifier: 'linkedin',
+            displayIcon: '^',
+            href: '/contact.html'
+        }, {
+            identifier: 'mail',
+            displayIcon: 'm',
+            href: '/contact.html'
+        }, {
+            identifier: 'medium',
+            displayIcon: 'me',
+            href: '/contact.html'
+        }]
+    }
+    
+    connectedCallback() {
+        this.innerHTML = this.getFooterStyles() + this.getFooter();
+    }
+
+    getFooterStyles() {
+        return `
+            <link href="css/components/footer.css" type="text/css" rel="stylesheet" />
+        `;
+    }
+
+    getMenuItemClass(identifier) {
+        const { pathname } = window.location;
+
+        if (identifier === 'home') {
+            return pathname === '/' || pathname === '/index.html' || pathname === '/home.html' ? 'active' : 'in-active';
+        }
+
+        if (pathname === `/${identifier}.html`) {
+            return 'active';
+        }
+        return 'in-active';
+    }
+
+    getMenuElement() {
+        const menuItems = this.getMenuItems();
+        let menuString = ``;
+
+        menuItems.forEach(({ identifier, displayIcon, href }) => {
+            menuString += `<li id="${identifier}" class="${this.getMenuItemClass(identifier)}"><a href="${href}">${displayIcon}</a></li>`;
+        })
+
+        return menuString;
+    }
+
+    getFooter() {
+        return `
+            <footer>
+                <p>&copy; SanthoshiSrisailapathi 2022</p>
+                <nav>
+                    <ul>
+                        ${this.getMenuElement()}
+                    </ul>
+                </nav>
+            </footer>
+        `;
+    }
+}
+
+customElements.define('portfolio-footer', Footer);
