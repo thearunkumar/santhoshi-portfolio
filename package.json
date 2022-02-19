@@ -2,10 +2,7 @@
   "name": "santhoshi-portfolio",
   "version": "1.0.0",
   "description": "Santhoshi Srisailapathi's portfolio",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "main": "index.html",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/thearunkumar/santhoshi-portfolio.git"
