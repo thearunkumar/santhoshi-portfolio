@@ -58,7 +58,7 @@ class Header extends HTMLElement {
         return `
             <header>
                 <figure>
-                    <img src="images/logo.png" />
+                    <img src="images/logo.svg" />
                 </figure>
                 <nav>
                     <ul>
@@ -116,24 +116,19 @@ class Footer extends HTMLElement {
     getMenuItems() {
         return [{
             identifier: 'dribble',
-            displayIcon: '*',
-            href: '/'
+            href: 'https://dribbble.com/Santhoshi_Srisailapathi'
         }, {
             identifier: 'behance',
-            displayIcon: '&',
-            href: '/projects.html'
+            href: 'https://www.behance.net/sans4'
         }, {
             identifier: 'linkedin',
-            displayIcon: '^',
-            href: '/contact.html'
+            href: 'https://www.linkedin.com/in/santhoshi-srisailapathi-314652164/'
         }, {
             identifier: 'mail',
-            displayIcon: 'm',
-            href: '/contact.html'
+            href: 'mailto:ssanthoshi@gmail.com?subject=Sent via Portfolio'
         }, {
             identifier: 'medium',
-            displayIcon: 'me',
-            href: '/contact.html'
+            href: 'https://ssanthoshi1904.medium.com/'
         }]
     }
     
@@ -160,12 +155,17 @@ class Footer extends HTMLElement {
         return 'in-active';
     }
 
+    getIcon(identifier) {
+        const src = `images/icons/${identifier}.svg`;
+        return `<img class="icon" src="${src}" />`;
+    }
+
     getMenuElement() {
         const menuItems = this.getMenuItems();
         let menuString = ``;
 
-        menuItems.forEach(({ identifier, displayIcon, href }) => {
-            menuString += `<li id="${identifier}" class="${this.getMenuItemClass(identifier)}"><a href="${href}">${displayIcon}</a></li>`;
+        menuItems.forEach(({ identifier, href }) => {
+            menuString += `<li id="${identifier}" class="${this.getMenuItemClass(identifier)}"><a href="${href}">${this.getIcon(identifier)}</a></li>`;
         })
 
         return menuString;

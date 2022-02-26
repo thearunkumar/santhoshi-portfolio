@@ -43,3 +43,10 @@ nav ul li a {
 li.active a {
     color: var(--active-purple);
 }
+
+.icon {
+    opacity: 0.5;
+}
+.icon:hover {
+    opacity: 1;
+}
