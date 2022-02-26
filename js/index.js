@@ -58,7 +58,7 @@ class Header extends HTMLElement {
         return `
             <header>
                 <figure>
-                    <img src="images/logo.svg" />
+                    <img src="images/Logo.svg" />
                 </figure>
                 <nav>
                     <ul>
