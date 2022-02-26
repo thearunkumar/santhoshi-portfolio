@@ -13,10 +13,6 @@ class Header extends HTMLElement {
             identifier: 'projects',
             display: 'Projects',
             href: '/projects.html'
-        }, {
-            identifier: 'contact',
-            display: 'Contact',
-            href: '/contact.html'
         }]
     }
     

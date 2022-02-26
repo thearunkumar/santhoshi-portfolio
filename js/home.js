@@ -60,7 +60,7 @@ class AboutCard extends FillCard {
         return this.getBaseStyle() + `
         <style>
             .about-card-view {
-                displsy: flex;
+                display: flex;
                 flex: 1;
                 flex-direction: column;
                 align-items: center;
