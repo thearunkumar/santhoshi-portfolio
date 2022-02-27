@@ -26,12 +26,18 @@ html {
     html {
         font-size: 4px;
     }
+    header figure img {
+        zoom: 0.5;
+    }
 }
 
 /* // X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
     html {
         font-size: 6px;
+    }
+    header figure img {
+        zoom: 0.5;
     }
 }
 
@@ -40,11 +46,17 @@ html {
     html {
         font-size: 8px;
     }
+    header figure img {
+        zoom: 0.75;
+    }
 }
 
 @media (min-width: 1700px) {
     html {
         font-size: 10px;
+    }
+    header figure img {
+        zoom: 1;
     }
 }
 
