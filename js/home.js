@@ -245,6 +245,7 @@ class SkillCategoryComponent extends HTMLElement {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                margin-bottom: 5rem;
             }
             .skills-category-component h1 {
                 font-size: 5rem;
