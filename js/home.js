@@ -49,7 +49,7 @@ class IntroCard extends FillCard {
 
 customElements.define('intro-card', IntroCard);
 
-const ABOUT_DESCRIPTION = 'I am a UX / UI desginer who aims to provide user-friendly, attractive, and accessible apps and sites. I have worked on many projects considering these features. My main motive is to develop good designs which target all sets of users';
+const ABOUT_DESCRIPTION = 'I am a UX / UI desginer who aims to provide user-friendly, attractive, and accessible apps and sites. I have worked on many projects considering these features. My main motive is to develop good designs which target all sets of users.';
 
 class AboutCard extends FillCard {
     constructor() {
