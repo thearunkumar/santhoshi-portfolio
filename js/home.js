@@ -312,13 +312,14 @@ class SkillsCard extends FillCard {
                 'Java - Basics',
                 'Python - Basics',
                 'SDLC',
-                'COBOL DB2, JCL'
+                'COBOL DB2'
             ]
         }, {
             title: 'Design Tools',
             skills: [
                 'Figma',
-                'Adobe XD'
+                'Adobe XD',
+                'Sketch'
             ]
         }, {
             title: 'Technical Tools',
