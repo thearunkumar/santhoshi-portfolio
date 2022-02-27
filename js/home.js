@@ -184,7 +184,7 @@ class CareerCard extends FillCard {
                 margin-top: 7rem;
                 margin-bottom: 2rem;
             }
-            .circle {
+            .circle-remove {
                 position: absolute;
                 right: -18%;
                 width: 70rem;
@@ -194,7 +194,7 @@ class CareerCard extends FillCard {
                 top: -80%;
                 z-index: 0;
             }
-            .circle.end {
+            .circle-remove.end {
                 left: -26%;
                 top: unset;
                 bottom: -80%;
