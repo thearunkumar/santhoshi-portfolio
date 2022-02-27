@@ -15,6 +15,9 @@ class ProjectCard extends HTMLElement {
                 position: relative;
                 display: flex;
             }
+            .project a {
+                width: 100%;
+            }
             .front, .back {
                 display: flex;
                 flex: 1;
@@ -73,12 +76,14 @@ class ProjectCard extends HTMLElement {
 
     getComponent() {
         return `<article class="project">
-            <aside class="front">
-                <img src="${this.project.image}" />
-            </aside>
-            <aside class="back">
-                ${this.getBackView(this.project.info)}
-            </aside>
+            <a target="_blank" href="${this.project.link}">
+                <aside class="front">
+                    <img src="${this.project.image}" />
+                </aside>
+                <aside class="back">
+                    ${this.getBackView(this.project.info)}
+                </aside>
+            </a>
         </article>`
     }
 
@@ -95,6 +100,7 @@ class ProjectsCard extends HTMLElement {
         this.projects = [{
             image: 'images/projects/pet-foods.svg',
             identifier: 'petFoods',
+            link: 'https://www.behance.net/gallery/136032687/paw-n-paw',
             hide: false,
             info: {
                 header: `paw n paw`,
@@ -104,6 +110,7 @@ class ProjectsCard extends HTMLElement {
         }, {
             image: 'images/projects/rent.svg',
             identifier: 'rent',
+            link: 'https://www.behance.net/gallery/136925631/FreshStart',
             hide: false,
             info: {
                 header: 'FreshStart',
@@ -113,6 +120,7 @@ class ProjectsCard extends HTMLElement {
         }, {
             image: 'images/projects/daily-ui.svg',
             identifier: 'dailyUi',
+            link: 'https://dribbble.com/Santhoshi_Srisailapathi',
             hide: false,
             info: {
                 header: 'Daily UI',
@@ -122,11 +130,12 @@ class ProjectsCard extends HTMLElement {
         }, {
             image: 'images/projects/defender.svg',
             identifier: 'defender',
-            hide: true,
+            link: 'https://www.behance.net/gallery/138122319/DEFENDER',
+            hide: false,
             info: {
-                header: 'Daily UI',
+                header: 'Defender',
                 meta: 'UX / UI, Interaction design, Visual design, Graphic design, UX Research',
-                period: 'January'
+                period: 'February'
             }
         }]
     }
