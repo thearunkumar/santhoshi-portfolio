@@ -312,8 +312,7 @@ class SkillsCard extends FillCard {
                 'Java - Basics',
                 'Python - Basics',
                 'SDLC',
-                'COBOL DB2',
-                'JCL'
+                'COBOL DB2, JCL'
             ]
         }, {
             title: 'Design Tools',
@@ -326,8 +325,7 @@ class SkillsCard extends FillCard {
             skills: [
                 'Eclipse',
                 'Rumba',
-                'Sublime text',
-                'Notepad ++'
+                'Sublime text'
             ]
         }]
     }
